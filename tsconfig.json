@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "declaration": false,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "./dist",
+        "target": "es2017",
+        "noLib": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": false
+    },
+    "include": [
+        "./setup-test.ts",
+        "./src/**/*",
+        "./test/**/*",
+    ],
+    "exclude": [
+        "node_modules/"
+    ]
+}

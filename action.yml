@@ -1,0 +1,12 @@
+name: "Pull Request Comment Trigger"
+description: 'Evaluate pull request messages to match a given "trigger" keyword (ie.: "@buildmobile") to enable conditional workflow'
+inputs:
+  trigger:
+    description: "The keyword to look for in pull-request comments"
+    required: true
+outputs:
+  triggered:
+    description: set to 'true' if the trigger was found, else value is 'false'
+runs:
+  using: "node12"
+  main: "dist/index.js"

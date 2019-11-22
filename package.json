@@ -1,0 +1,40 @@
+{
+  "name": "action-comment-trigger",
+  "version": "1.0.0",
+  "description": "A github action to evaluate pull request messages to match a given keyword",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts",
+    "format": "npm run lint -- --fix",
+    "lint": "eslint ./src --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kilimangaro/action-comment-trigger.git"
+  },
+  "keywords": [
+    "github",
+    "github actions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kilimangaro/action-comment-trigger/issues"
+  },
+  "homepage": "https://github.com/Kilimangaro/action-comment-trigger#readme",
+  "dependencies": {
+    "@actions/core": "1.2.0",
+    "@actions/github": "1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "12.12.11",
+    "@zeit/ncc": "0.20.5",
+    "@typescript-eslint/eslint-plugin": "2.8.0",
+    "@typescript-eslint/parser": "2.8.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-plugin-prettier": "3.1.1",
+    "prettier": "1.19.1",
+    "typescript": "3.7.2"
+  }
+}
