@@ -10,6 +10,7 @@ async function main() {
         return;
     }
 
+    console.log(context.payload);
     if (context.eventName === "issue_comment" && !context.payload.issue.pull_request) {
         setOutput("triggered", "false");
         return;
