@@ -3851,6 +3851,7 @@ isStream.transform = function (stream) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+//pull_request_review_comment
 const core_1 = __webpack_require__(470);
 const github_1 = __webpack_require__(469);
 async function main() {
@@ -3859,11 +3860,21 @@ async function main() {
         core_1.setFailed("No `trigger` given.");
         return;
     }
+    console.log(github_1.context.payload);
     if (github_1.context.eventName === "issue_comment" && !github_1.context.payload.issue.pull_request) {
         core_1.setOutput("triggered", "false");
         return;
     }
-    const body = github_1.context.eventName === "issue_comment" ? github_1.context.payload.comment.body : github_1.context.payload.pull_request.body;
+    let body = "";
+    switch (github_1.context.eventName) {
+        case "issue_comment":
+        case "pull_request_review_comment":
+            body = github_1.context.payload.comment.body;
+            break;
+        default:
+            body = github_1.context.payload.pull_request.body;
+            break;
+    }
     if (!body.includes(trigger)) {
         core_1.setOutput("triggered", "false");
         return;

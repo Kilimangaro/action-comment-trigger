@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+//pull_request_review_comment
 import { getInput, setFailed, setOutput } from "@actions/core";
 import { context } from "@actions/github";
 
@@ -16,8 +16,16 @@ async function main() {
         return;
     }
 
-    const body =
-        context.eventName === "issue_comment" ? context.payload.comment.body : context.payload.pull_request.body;
+    let body = "";
+    switch (context.eventName) {
+        case "issue_comment":
+        case "pull_request_review_comment":
+            body = context.payload.comment.body;
+            break;
+        default:
+            body = context.payload.pull_request.body;
+            break;
+    }
 
     if (!body.includes(trigger)) {
         setOutput("triggered", "false");
